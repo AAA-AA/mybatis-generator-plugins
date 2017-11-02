@@ -20,11 +20,13 @@ public class CommentGenerator extends DefaultCommentGenerator {
     public CommentGenerator() {
     }
 
+    @Override
     public void addConfigurationProperties(Properties properties) {
         super.addConfigurationProperties(properties);
         Optional.ofNullable(properties.getProperty("suppressColumnComments")).ifPresent((e)->this.suppressColumnComments=Boolean.parseBoolean(e));
     }
 
+    @Override
     public void addFieldComment(Field field, IntrospectedTable introspectedTable, IntrospectedColumn introspectedColumn) {
         if (this.suppressColumnComments) {
             Optional.ofNullable(introspectedColumn.getRemarks()).filter((e)->e.length()!=0).ifPresent((e)->{

@@ -20,10 +20,12 @@ public class RenamePlugin extends PluginAdapter {
     public RenamePlugin() {
     }
 
+    @Override
     public boolean validate(List<String> strings) {
         return true;
     }
 
+    @Override
     public void initialized(IntrospectedTable introspectedTable) {
         String contextSearch = this.context.getProperty(SEARCH_PROPERTY_NAME);
         String contextReplace = this.context.getProperty(REPLACE_PROPERTY_NAME);

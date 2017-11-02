@@ -32,10 +32,12 @@ public class SeparateUserCodePlugin extends PluginAdapter {
     public SeparateUserCodePlugin() {
     }
 
+    @Override
     public boolean validate(List<String> strings) {
         return true;
     }
 
+    @Override
     public boolean clientGenerated(Interface interfaze, TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         String userCodePackage = this.context.getJavaClientGeneratorConfiguration().getProperty(TARGET_PACKAGE_PROPERTY_NAME);
         if (userCodePackage == null) {
@@ -82,10 +84,12 @@ public class SeparateUserCodePlugin extends PluginAdapter {
         return true;
     }
 
+    @Override
     public List<GeneratedJavaFile> contextGenerateAdditionalJavaFiles() {
         return this.generatedJavaFileList;
     }
 
+    @Override
     public List<GeneratedXmlFile> contextGenerateAdditionalXmlFiles() {
         return this.generatedXmlFileList;
     }

@@ -16,6 +16,7 @@ public class CustomJavaTypeResolver extends JavaTypeResolverDefaultImpl {
     public CustomJavaTypeResolver() {
     }
 
+    @Override
     public void addConfigurationProperties(Properties properties) {
         super.addConfigurationProperties(properties);
         String p = this.properties.getProperty("customTypeMap");
@@ -37,6 +38,7 @@ public class CustomJavaTypeResolver extends JavaTypeResolverDefaultImpl {
 
     }
 
+    @Override
     public FullyQualifiedJavaType calculateJavaType(IntrospectedColumn introspectedColumn) {
         FullyQualifiedJavaType answer = (FullyQualifiedJavaType) this.customTypeMap.get(Integer.valueOf(introspectedColumn.getJdbcType()));
         return answer != null ? answer : super.calculateJavaType(introspectedColumn);
