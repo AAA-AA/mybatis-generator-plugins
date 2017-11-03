@@ -60,11 +60,11 @@ public class RenamePlugin extends PluginAdapter {
         StringBuffer bf = new StringBuffer();
         if (null != ignoreTablePrefix && ignoreTablePrefix.length() > 0) {
             String[] splits = tableName.replaceFirst(ignoreTablePrefix, "").split("_");
-            for (String s:splits) {
+            for (String s : splits) {
                 if (s == null || s.length() == 0) {
                     continue;
                 }
-                bf.append(s.substring(0,1).toUpperCase());
+                bf.append(s.substring(0, 1).toUpperCase());
                 if (s.length() > 1) {
                     bf.append(s.substring(1));
                 }
