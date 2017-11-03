@@ -59,8 +59,16 @@ public class RenamePlugin extends PluginAdapter {
         String ignoreTablePrefix = this.properties.getProperty(IGNORE_TABLE_PREFIX);
         StringBuffer bf = new StringBuffer();
         if (null != ignoreTablePrefix && ignoreTablePrefix.length() > 0) {
-            String temp = tableName.replaceFirst(ignoreTablePrefix, "");
-            bf.append(temp.substring(0,1).toUpperCase()).append(temp.substring(1));
+            String[] splits = tableName.replaceFirst(ignoreTablePrefix, "").split("_");
+            for (String s:splits) {
+                if (s == null || s.length() == 0) {
+                    continue;
+                }
+                bf.append(s.substring(0,1).toUpperCase());
+                if (s.length() > 1) {
+                    bf.append(s.substring(1));
+                }
+            }
         }
         return bf.toString();
     }
