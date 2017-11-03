@@ -1,8 +1,6 @@
 package com.github.mybatis.generator.plugins;
 
 
-import com.github.mybatis.generator.type.FileFullName;
-import com.github.mybatis.generator.type.TypeFullName;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.PluginAdapter;
 
