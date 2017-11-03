@@ -1,4 +1,4 @@
-package com.github.mybatis.generator.plugins;
+package com.github.mybatis.generator.plugin;
 
 
 import org.mybatis.generator.api.IntrospectedTable;
