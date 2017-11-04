@@ -34,7 +34,7 @@ public class CommentGenerator extends DefaultCommentGenerator {
 
     @Override
     public void addFieldComment(Field field, IntrospectedTable introspectedTable, IntrospectedColumn introspectedColumn) {
-        if (this.suppressAllComments) {
+        if (!this.suppressAllComments) {
             Optional.ofNullable(introspectedColumn.getRemarks()).filter((e) -> e.length() != 0).ifPresent((e) -> {
                 field.addJavaDocLine("/**" + introspectedColumn.getRemarks() + "*/");
             });
@@ -48,7 +48,7 @@ public class CommentGenerator extends DefaultCommentGenerator {
 
     @Override
     public void addModelClassComment(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
-        if (this.suppressAllComments) {
+        if (!this.suppressAllComments) {
             topLevelClass.addJavaDocLine("/**");
             topLevelClass.addJavaDocLine(" * link table is " + introspectedTable.getFullyQualifiedTableNameAtRuntime());
             topLevelClass.addJavaDocLine(" * Copyright © " + String.valueOf(Calendar.getInstance().get(Calendar.YEAR)) + ", github and/or its affiliates. All rights reserved.");
