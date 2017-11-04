@@ -8,7 +8,6 @@ import org.mybatis.generator.api.dom.java.Method;
 import org.mybatis.generator.api.dom.java.TopLevelClass;
 import org.mybatis.generator.internal.DefaultCommentGenerator;
 
-import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Optional;
 import java.util.Properties;
@@ -22,8 +21,7 @@ import java.util.Properties;
  */
 public class CommentGenerator extends DefaultCommentGenerator {
 
-    //是否添加注解
-    private boolean isAddComments = true;
+    private boolean suppressAllComments = false;
 
     public CommentGenerator() {
     }
@@ -31,14 +29,14 @@ public class CommentGenerator extends DefaultCommentGenerator {
     @Override
     public void addConfigurationProperties(Properties properties) {
         super.addConfigurationProperties(properties);
-        Optional.ofNullable(properties.getProperty("isAddComments")).ifPresent((e)->this.isAddComments=Boolean.parseBoolean(e));
+        Optional.ofNullable(properties.getProperty("suppressAllComments")).ifPresent((e) -> this.suppressAllComments = Boolean.parseBoolean(e));
     }
 
     @Override
     public void addFieldComment(Field field, IntrospectedTable introspectedTable, IntrospectedColumn introspectedColumn) {
-        if (isAddComments) {
-            Optional.ofNullable(introspectedColumn.getRemarks()).filter((e)->e.length()!=0).ifPresent((e)->{
-                field.addJavaDocLine("/**"+introspectedColumn.getRemarks()+"*/");
+        if (this.suppressAllComments) {
+            Optional.ofNullable(introspectedColumn.getRemarks()).filter((e) -> e.length() != 0).ifPresent((e) -> {
+                field.addJavaDocLine("/**" + introspectedColumn.getRemarks() + "*/");
             });
         }
     }
@@ -50,7 +48,7 @@ public class CommentGenerator extends DefaultCommentGenerator {
 
     @Override
     public void addModelClassComment(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
-        if (this.isAddComments) {
+        if (this.suppressAllComments) {
             topLevelClass.addJavaDocLine("/**");
             topLevelClass.addJavaDocLine(" * link table is " + introspectedTable.getFullyQualifiedTableNameAtRuntime());
             topLevelClass.addJavaDocLine(" * Copyright © " + String.valueOf(Calendar.getInstance().get(Calendar.YEAR)) + ", github and/or its affiliates. All rights reserved.");
