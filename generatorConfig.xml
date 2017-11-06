@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+		PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<context defaultModelType="flat" id="write" targetRuntime="MyBatis3">
+		<!--防止多次生成，重复的sql叠加-->
+		<plugin type="com.github.mybatis.generator.plugin.XmlFileOverwritePlugin"/>
+		<!--提供lombok支持，非必需-->
+		<plugin type="com.github.mybatis.generator.plugin.LombokPlugin"/>
+		<!--提供批量插入支持-->
+		<plugin type="com.github.mybatis.generator.plugin.MultiInsertPlugin"/>
+		<!--忽略表的某些前缀来生成对应的对象，譬如表名为t_sms_template, 忽略t_后，生成的实体类是SmsTemplate, 符合实际需求-->
+		<plugin type="com.github.mybatis.generator.plugin.RenamePlugin">
+			<property name="ignoreTablePrefix" value="t_"/>
+		</plugin>
+		<commentGenerator type="com.github.mybatis.generator.comment.CommentGenerator"/>
+		<jdbcConnection connectionURL="jdbc:mysql://127.0.0.1:3306/demo?useUnicode=true&amp;characterEncoding=utf-8"
+						driverClass="com.mysql.jdbc.Driver" password="*******"
+						userId="********" />
+
+		<javaTypeResolver type="com.github.mybatis.generator.type.JavaTypeResolver">
+			<property name="forceLocalDateTime" value="true"/>
+			<property name="forceTinyintInteger" value="true"/>
+			<property name="forceSmallIntInteger" value="true"/>
+		</javaTypeResolver>
+
+
+		<!--实体 -->
+		<javaModelGenerator targetPackage="ren.com.cn.domain.entity"
+			targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!--mapper映射文件-->
+		<sqlMapGenerator targetPackage="mybatis.mappers.gen"
+			targetProject="src/main/resources">
+		</sqlMapGenerator>
+
+		<!--接口mapper -->
+		<javaClientGenerator targetPackage="ren.com.cn.dao.mapper.gen"
+			targetProject="src/main/java" type="XMLMAPPER">
+		</javaClientGenerator>
+		<!--库,表-->
+		<!--<table schema="vip"
+			tableName="vip_bcoin_salary" >
+			<property name="useActualColumnNames" enable="false" />
+		</table>
+		<table tableName="vip_user_info" >
+			<property name="useActualColumnNames" enable="false" />
+		</table>
+		<table tableName="vip_app_auth" >
+			<property name="useActualColumnNames" enable="false" />
+		</table>
+		<table tableName="vip_app_info" >
+			<property name="useActualColumnNames" enable="false" />
+		</table>
+		<table tableName="vip_message_task" >
+			<property name="useActualColumnNames" enable="false" />
+		</table>
+		<table tableName="vip_month" >
+			<property name="useActualColumnNames" enable="false" />
+		</table>
+		<table tableName="vip_month_mapping" >
+			<property name="useActualColumnNames" enable="false" />
+		</table>
+		<table tableName="vip_month_order" >
+			<property name="useActualColumnNames" enable="false" />
+		</table>
+		<table tableName="vip_pay_order" >
+			<property name="useActualColumnNames" enable="false" />
+		</table>
+		<table tableName="vip_pay_order_index" >
+			<property name="useActualColumnNames" enable="false" />
+		</table>
+		<table tableName="vip_platform" >
+			<property name="useActualColumnNames" enable="false" />
+		</table>
+		<table tableName="vip_privilege" >
+			<property name="useActualColumnNames" enable="false" />
+		</table>
+		<table tableName="vip_privilege_mapping" >
+			<property name="useActualColumnNames" enable="false" />
+		</table>
+		<table tableName="vip_recharge_order" >
+			<property name="useActualColumnNames" enable="false" />
+		</table>
+		<table tableName="vip_route_resource" >
+			<property name="useActualColumnNames" enable="false" />
+		</table>
+		<table tableName="vip_emoji_package" >
+			<property name="useActualColumnNames" enable="false" />
+		</table>
+		<table tableName="vip_emoji" >
+			<property name="useActualColumnNames" enable="false" />
+		</table>
+		<table tableName="vip_config" >
+			<property name="useActualColumnNames" enable="false" />
+		</table>
+		<table tableName="vip_game" >
+			<property name="useActualColumnNames" enable="false" />
+		</table>
+		<table tableName="vip_app_version" >
+			<property name="useActualColumnNames" enable="false" />
+		</table>-->
+	<!--	<table tableName="vip_member_exchange_history" >
+			<property name="useActualColumnNames" enable="false" />
+		</table>
+		<table tableName="vip_order_make_up_history" >
+			<property name="useActualColumnNames" enable="false" />
+		</table>
+		<table tableName="vip_temp" >
+			<property name="useActualColumnNames" enable="false" />
+		</table>-->
+		<!--<table tableName="vip_change_history" >
+			<property name="useActualColumnNames" value="false" />
+		</table>-->
+		<!--<table tableName="vip_point" >
+			<property name="useActualColumnNames" value="false" />
+		</table>-->
+      <!--  <table tableName="vip_point_exchange_price" >
+            <property name="useActualColumnNames" value="false" />
+        </table>-->
+		<!--<table tableName="vip_point_change_history" >
+			<property name="useActualColumnNames" value="false" />
+		</table>-->
+		<!--<table tableName="vip_temp" >-->
+			<!--<property name="useActualColumnNames" value="false" />-->
+		<!--</table>-->
+		<table tableName="t_sms_send_log" >
+			<property name="useActualColumnNames" value="false" />
+		</table>
+	</context>
+
+</generatorConfiguration>
