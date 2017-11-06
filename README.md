@@ -46,7 +46,7 @@ And More
 * if any question, tell me please, wait for your feedback!😂😂😂 you can touch me by: 
 ```
 {
-    "wechat": "**RR-ViVi**",
+    "wechat": "RR-ViVi",
     "QQ": "820941512",
     "Sina Weibo": "北斗星君君"
 }
