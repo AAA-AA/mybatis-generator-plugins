@@ -17,9 +17,9 @@
 		<plugin type="com.github.mybatis.generator.plugin.MapperAnnotationPlugin"/>
 
 		<commentGenerator type="com.github.mybatis.generator.comment.CommentGenerator"/>
-		<jdbcConnection connectionURL="jdbc:mysql://10.231.20.43:3306/face?useUnicode=true&amp;characterEncoding=utf-8"
-						driverClass="com.mysql.jdbc.Driver" password="alVemzqap30"
-						userId="root" />
+		<jdbcConnection connectionURL="jdbc:mysql://127.0.0.1:3306/demo?useUnicode=true&amp;characterEncoding=utf-8"
+						driverClass="com.mysql.jdbc.Driver" password="*******"
+						userId="********" />
 
 		<javaTypeResolver type="com.github.mybatis.generator.type.JavaTypeResolver">
 			<property name="forceLocalDateTime" value="true"/>
