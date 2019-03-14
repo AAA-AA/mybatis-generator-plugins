@@ -14,6 +14,8 @@
 		<plugin type="com.github.mybatis.generator.plugin.RenamePlugin">
 			<property name="ignoreTablePrefix" value="t_"/>
 		</plugin>
+		<plugin type="com.github.mybatis.generator.plugin.MapperAnnotationPlugin"/>
+
 		<commentGenerator type="com.github.mybatis.generator.comment.CommentGenerator"/>
 		<jdbcConnection connectionURL="jdbc:mysql://10.231.20.43:3306/face?useUnicode=true&amp;characterEncoding=utf-8"
 						driverClass="com.mysql.jdbc.Driver" password="alVemzqap30"
@@ -43,7 +45,7 @@
 			targetProject="src/main/java" type="XMLMAPPER">
 		</javaClientGenerator>
 
-		<table tableName="t_sms_send_log" >
+		<table tableName="xj_box_info" >
 			<property name="useActualColumnNames" value="false" />
 		</table>
 	</context>
