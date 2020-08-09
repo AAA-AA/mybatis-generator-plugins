@@ -4,6 +4,7 @@ mybatis-generator-plugins版本1.2.0版本相关特性
 * lombok支持
 * 注释支持
 * 批量插入支持
+* 插入后自动生成主键支持
 * 支持多种类型强转，tinyint，smallint 转 Integer, datatime 或者 timestamp 转 LocalDateTime
 
 User Guide
@@ -17,9 +18,9 @@ User Guide
  
 ```
 <plugin>
-    <groupId>org.mybatis.generator</groupId>
-    <artifactId>mybatis-generator-maven-plugin</artifactId>
-    <version>1.3.5</version>
+    <groupId>com.github.mybatis.generator</groupId>
+    <artifactId>mybatis-generator-plugins</artifactId>
+    <version>1.4.0</version>
     <configuration>
         <!--重新指定配置文件路径时可以配置<configurationFile>src/main/resources/mybatis-generator-config.xml</configurationFile>-->
         <verbose>true</verbose>
