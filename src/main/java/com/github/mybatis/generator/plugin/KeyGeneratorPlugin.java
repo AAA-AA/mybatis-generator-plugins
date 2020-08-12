@@ -39,7 +39,7 @@ public class KeyGeneratorPlugin extends PluginAdapter {
             } else {
                 IntrospectedColumn keyColumn = (IntrospectedColumn)keyColumns.get(0);
                 FullyQualifiedJavaType javaType = keyColumn.getFullyQualifiedJavaType();
-                if (!this.isNumber(javaType)) {
+                if (!this.isNumber(javaType) || element.getName().equalsIgnoreCase("mapper")) {
                     return true;
                 } else {
                     element.addAttribute(new Attribute("useGeneratedKeys", "true"));

@@ -18,9 +18,9 @@ User Guide
  
 ```
 <plugin>
-    <groupId>com.github.mybatis.generator</groupId>
-    <artifactId>mybatis-generator-plugins</artifactId>
-    <version>1.4.0</version>
+    <groupId>org.mybatis.generator</groupId>
+    <artifactId>mybatis-generator-maven-plugin</artifactId>
+    <version>1.3.5</version>
     <configuration>
         <!--重新指定配置文件路径时可以配置<configurationFile>src/main/resources/mybatis-generator-config.xml</configurationFile>-->
         <verbose>true</verbose>
@@ -30,13 +30,13 @@ User Guide
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.38</version>
+            <version>5.1.47</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-maven-plugin -->
         <dependency>
-            <groupId>org.mybatis.generator</groupId>
+            <groupId>com.github.mybatis.generator</groupId>
             <artifactId>mybatis-generator-plugins</artifactId>
-            <version>1.2.0.REALEASE</version>
+            <version>1.4.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </plugin>
